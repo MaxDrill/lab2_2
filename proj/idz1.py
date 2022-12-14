@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import sys
 
 if __name__ == '__main__':
     m = int(input("Введите число от 1 до 12: "))
@@ -28,4 +29,5 @@ if __name__ == '__main__':
     elif m == 12:
         print("Декабрь")
     else:
-        print("Вы ввели число не от 1 до 12")
+        print("Вы ввели число не от 1 до 12", file=sys.stderr)
+        exit(1)

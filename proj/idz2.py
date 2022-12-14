@@ -1,26 +1,36 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+import math
+import sys
 if __name__ == '__main__':
-    a = float(input("Введите коэф а: "))
-    b = float(input("Введите коэф b: "))
-    c = float(input("Введите коэф c: "))
-    if a != 0:
-        d = b**2 - 4 * a * c
-        if d == 0:
-            t = -b / (2 * a)
-            x1 = t ** 0.5
-            x2 = - (t ** 0.5)
-            print(x1, x2)
-        elif d > 0:
-            t1 = (-b + d ** 0.5) / (2 * a)
-            t2 = (-b - d ** 0.5) / (2 * a)
-            x3 = t1 ** 0.5
-            x4 = - (t1 ** 0.5)
-            x5 = t2 ** 0.5
-            x6 = - (t2 ** 0.5)
-            print("Корни: ", x3, x4, x5, x6)
-        elif d < 0:
-            print("Корней нет")
+    a = float(input("Enter a: "))
+    b = float(input("Enter b: "))
+    c = float(input("Enter c: "))
+    if a == 0:
+        print("Ошибка!", file=sys.stderr)
+        exit(1)
     else:
-        print("а не должно = 0")
+        D = b * b - 4 * a * c
+        if D > 0:
+            t1 = (-b + D ** 0.5) / (2 * a)
+            t2 = (-b + (-D) ** 0.5) / (2 * a)
+            if t1 >= 0:
+                x1 = math.sqrt(t1)
+                x2 = -math.sqrt(t1)
+                print(f"x1={x1}, x2={x2}")
+            elif t2 >= 0:
+                x3 = math.sqrt(t2)
+                x4 = -math.sqrt(t2)
+                print(f"x3={x3}. x4={x4}")
+            else:
+                print("Действительных корней нет")
+        elif D == 0:
+            t1 = -b / (2 * a)
+            if t1 >= 0:
+                x1 = math.sqrt(t1)
+                x2 = -math.sqrt(t1)
+                print(f"x1={x1}, x2={x2}")
+            else:
+                print("Действительных корней нет")
+        elif D < 0:
+            print("Действительных корней нет")
