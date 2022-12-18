@@ -10,7 +10,7 @@ if __name__ == '__main__':
     s = 0
     k = 0
     while math.fabs(a) > EPS:
-        a = ((x ** 2 / 4) ** k) / (math.factorial(k) * math.factorial(k + n))
+        a *= (((x ** 2) / 4) * (k + 1)) / ((k + 1) * (k + n))
         s = s + a
         k = k + 1
     print(f"I({x}) = {((x / 2)**2) * s}")
